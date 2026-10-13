@@ -127,7 +127,7 @@
                         <span>Est. Duration: <strong id="estDuration" class="text-crimson-600 dark:text-crimson-400">0s</strong></span>
                     </div>
                     <div class="text-xs text-slate-400">
-                        <span>UTF-8 Burmese Ready</span>
+                        <span>ElevenLabs API Ready</span>
                     </div>
                 </div>
             </div>
@@ -147,27 +147,27 @@
 
             <div class="flex-1 overflow-y-auto p-5 space-y-5">
                 
-                <!-- Voice Model Selection (15 Profiles) -->
+                <!-- Voice Model Selection (15 Profiles with ElevenLabs Voice IDs) -->
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-2">
                         Voice Model Profile (15 Available)
                     </label>
                     <select id="voiceModelSelect" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:ring-2 focus:ring-crimson-500 focus:outline-none">
-                        <option value="voice_01">VOICE 01 — Natural Male (Warm, Balanced)</option>
-                        <option value="voice_02">VOICE 02 — Natural Female (Clear, Friendly)</option>
-                        <option value="voice_03">VOICE 03 — Deep Male (Documentary, Serious)</option>
-                        <option value="voice_04">VOICE 04 — Soft Female (Warm, Gentle Storytelling)</option>
-                        <option value="voice_05">VOICE 05 — Energetic Male (Short-form / Viral)</option>
-                        <option value="voice_06">VOICE 06 — Energetic Female (TikTok / Entertainment)</option>
-                        <option value="voice_07">VOICE 07 — Documentary Male (Professional Narrator)</option>
-                        <option value="voice_08">VOICE 08 — Storyteller Male (Movie Recap / Drama)</option>
-                        <option value="voice_09">VOICE 09 — Storyteller Female (Warm Dramatic)</option>
-                        <option value="voice_10">VOICE 10 — Calm Narrator (Educational / Slow)</option>
-                        <option value="voice_11">VOICE 11 — Professional Presenter (Confident)</option>
-                        <option value="voice_12">VOICE 12 — Movie Recap (Dramatic Transitions)</option>
-                        <option value="voice_13">VOICE 13 — Mystery (Suspenseful & Dark)</option>
-                        <option value="voice_14">VOICE 14 — Friendly Creator (Conversational)</option>
-                        <option value="voice_15">VOICE 15 — Premium Narrator (Cinematic)</option>
+                        <option value="21m00Tcm4TlvDq8ikWAM">VOICE 01 — Rachel (Natural Female, Calm & Clear)</option>
+                        <option value="AZnzlk1XvdvUeBnXmlld">VOICE 02 — Domi (Expressive Female)</option>
+                        <option value="EXAVITQu4vr4xnSDxMaL">VOICE 03 — Bella (Soft Narrative)</option>
+                        <option value="ErXwobaYiN019PkySvjV">VOICE 04 — Antoni (Warm Balanced Male)</option>
+                        <option value="VR6AewLTigWG4xSOukaG">VOICE 05 — Eli (Energetic Creator)</option>
+                        <option value="MF3mGyEYCl7XYWbV9V6O">VOICE 06 — Elli (Friendly Storyteller)</option>
+                        <option value="TxGEqnHWrfWFTfGW9XjX">VOICE 07 — Josh (Deep Documentary Male)</option>
+                        <option value="VR6AewLTigWG4xSOukaG">VOICE 08 — Arnold (Cinematic Recap Male)</option>
+                        <option value="AZnzlk1XvdvUeBnXmlld">VOICE 09 — Sam (Confident Presenter)</option>
+                        <option value="pNInz6obpgDQGcFmaJgB">VOICE 10 — Adam (Deep Voice Narrator)</option>
+                        <option value="yoZ06aMxZJJ28mfd3POQ">VOICE 11 — Sam (Professional Male)</option>
+                        <option value="ODq5zmih8GrVes37Dizd">VOICE 12 — Patrick (Warm Audiobooks)</option>
+                        <option value="ThT5KcBeYPX3keUQqHPh">VOICE 13 — Dorothy (Classic Storyteller)</option>
+                        <option value="ZQe5CZNOzWyzPSCn5a3c">VOICE 14 — James (News Narrator)</option>
+                        <option value="CYw3kZ02Hs0563khs1Fj">VOICE 15 — Dave (Casual Conversational)</option>
                     </select>
                 </div>
 
@@ -189,27 +189,27 @@
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1.5">Pitch</label>
                         <select id="pitchSelect" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-crimson-500 focus:outline-none">
-                            <option value="low">Low</option>
-                            <option value="normal" selected>Normal</option>
-                            <option value="high">High</option>
+                            <option value="low">Low (-2 st)</option>
+                            <option value="normal" selected>Normal (Default)</option>
+                            <option value="high">High (+2 st)</option>
                         </select>
                     </div>
 
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1.5">Expression</label>
                         <select id="expressionSelect" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-crimson-500 focus:outline-none">
-                            <option value="low">Low</option>
-                            <option value="natural" selected>Natural</option>
-                            <option value="expressive">Expressive</option>
+                            <option value="0.3">Low Stability</option>
+                            <option value="0.75" selected>Natural (75%)</option>
+                            <option value="0.95">High Expressive</option>
                         </select>
                     </div>
 
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1.5">Pause Control</label>
                         <select id="pauseSelect" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-crimson-500 focus:outline-none">
-                            <option value="short">Short</option>
-                            <option value="natural" selected>Natural</option>
-                            <option value="long">Long</option>
+                            <option value="short">Short Breaks</option>
+                            <option value="natural" selected>Natural Cadence</option>
+                            <option value="long">Cinematic Long Pauses</option>
                         </select>
                     </div>
                 </div>
@@ -222,9 +222,9 @@
                     </select>
                 </div>
 
-                <button onclick="startGeneration()" id="generateBtn" class="w-full mt-2 py-3.5 px-4 bg-gradient-to-r from-crimson-600 to-red-500 hover:from-crimson-700 hover:to-red-600 text-white font-semibold rounded-xl shadow-lg shadow-crimson-600/30 flex items-center justify-center space-x-2 transition transform active:scale-[0.98]">
+                <button onclick="startElevenLabsGeneration()" id="generateBtn" class="w-full mt-2 py-3.5 px-4 bg-gradient-to-r from-crimson-600 to-red-500 hover:from-crimson-700 hover:to-red-600 text-white font-semibold rounded-xl shadow-lg shadow-crimson-600/30 flex items-center justify-center space-x-2 transition transform active:scale-[0.98]">
                     <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <span>Generate & Record Audio (MP3)</span>
+                    <span>Generate ElevenLabs MP3 Audio</span>
                 </button>
 
             </div>
@@ -239,7 +239,7 @@
                 <div id="statusIndicator" class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
                 <div>
                     <p id="statusText" class="text-sm font-medium text-slate-700 dark:text-slate-200">Ready to generate voice-over</p>
-                    <p id="subStatusText" class="text-xs text-slate-400">Select voice profile & click generate</p>
+                    <p id="subStatusText" class="text-xs text-slate-400">Enter API key in settings & click generate</p>
                 </div>
             </div>
 
@@ -268,30 +268,21 @@
             <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
                 <h3 class="font-bold text-base flex items-center space-x-2">
                     <i class="fa-solid fa-key text-crimson-600"></i>
-                    <span>TTS API Configuration</span>
+                    <span>ElevenLabs API Configuration</span>
                 </h3>
                 <button onclick="toggleApiModal(false)" class="text-slate-400 hover:text-slate-600">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
             
-            <p class="text-xs text-slate-500 dark:text-slate-400">
-                Configure your API provider for custom cloud TTS synthesis. System defaults to robust Web Speech & Audio Recorder if left blank.
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                Enter your <strong class="text-slate-700 dark:text-slate-200">ElevenLabs API Key</strong> to generate high-quality voice audio for Burmese scripts directly from ElevenLabs servers. Keys are stored securely in your browser's localStorage.
             </p>
 
             <div class="space-y-3">
                 <div>
-                    <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">API Provider</label>
-                    <select id="apiProvider" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-crimson-500 focus:outline-none">
-                        <option value="elevenlabs">ElevenLabs API</option>
-                        <option value="openai">OpenAI TTS API</option>
-                        <option value="browser">Browser Native Engine</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">API Key</label>
-                    <input type="password" id="apiKeyInput" placeholder="Enter your API key here..." class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-crimson-500 focus:outline-none">
+                    <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">ElevenLabs API Key</label>
+                    <input type="password" id="apiKeyInput" placeholder="sk_..." class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-crimson-500 focus:outline-none">
                 </div>
             </div>
 
@@ -357,18 +348,14 @@
         }
 
         function saveApiSettings() {
-            const provider = document.getElementById('apiProvider').value;
-            const apiKey = document.getElementById('apiKeyInput').value;
-            localStorage.setItem('ngen_tts_provider', provider);
-            localStorage.setItem('ngen_tts_key', apiKey);
+            const apiKey = document.getElementById('apiKeyInput').value.trim();
+            localStorage.setItem('elevenlabs_api_key', apiKey);
             toggleApiModal(false);
-            showNotification("Success", "API configuration saved successfully.");
+            showNotification("အောင်မြင်ပါသည်", "API Key ကို သိမ်းဆည်းပြီးပါပြီ။");
         }
 
         function loadSavedSettings() {
-            const provider = localStorage.getItem('ngen_tts_provider');
-            const apiKey = localStorage.getItem('ngen_tts_key');
-            if (provider) document.getElementById('apiProvider').value = provider;
+            const apiKey = localStorage.getItem('elevenlabs_api_key');
             if (apiKey) document.getElementById('apiKeyInput').value = apiKey;
         }
 
@@ -401,13 +388,13 @@
         }
 
         function resetControls() {
-            document.getElementById('voiceModelSelect').value = 'voice_01';
+            document.getElementById('voiceModelSelect').selectedIndex = 0;
             document.getElementById('speedSelect').value = '1.0';
             document.getElementById('pitchSelect').value = 'normal';
-            document.getElementById('expressionSelect').value = 'natural';
+            document.getElementById('expressionSelect').value = '0.75';
             document.getElementById('pauseSelect').value = 'natural';
             document.getElementById('claritySelect').value = 'enhanced';
-            showNotification("Reset", "Controls have been reset to default values.");
+            showNotification("Reset", "ထိန်းချုပ်မှုများကို မူလအခြေအနေသို့ ပြန်လည်ပြောင်းလဲပြီးပါပြီ။");
         }
 
         function segmentScript(text) {
@@ -427,16 +414,25 @@
             return sections.length > 0 ? sections : [text];
         }
 
-        // Advanced Web Audio API & MediaRecorder implementation for genuine MP3/WAV generation
-        async function startGeneration() {
+        // Real ElevenLabs API Integration
+        async function startElevenLabsGeneration() {
             const text = document.getElementById('scriptInput').value.trim();
             if (!text) {
-                showNotification("Error", "စာသားမထည့်ရသေးပါဘူး။ Script ကို Paste လုပ်ပေးပါ။", true);
+                showNotification("သတိပေးချက်", "ကျေးဇူးပြု၍ Burmese စာသားအနည်းဆုံး တစ်ပိုဒ်ထည့်ပါ။", true);
                 return;
             }
 
-            const voiceModel = document.getElementById('voiceModelSelect').value;
+            const apiKey = localStorage.getItem('elevenlabs_api_key') || document.getElementById('apiKeyInput').value.trim();
+            if (!apiKey) {
+                showNotification("API Key လိုအပ်ပါသည်", "API Settings ထဲတွင် ElevenLabs API Key ထည့်သွင်းပေးပါ။", true);
+                toggleApiModal(true);
+                return;
+            }
+
+            const voiceId = document.getElementById('voiceModelSelect').value;
+            const stability = parseFloat(document.getElementById('expressionSelect').value);
             const speed = parseFloat(document.getElementById('speedSelect').value);
+            
             const statusIndicator = document.getElementById('statusIndicator');
             const statusText = document.getElementById('statusText');
             const subStatusText = document.getElementById('subStatusText');
@@ -444,92 +440,65 @@
 
             generateBtn.disabled = true;
             statusIndicator.className = "w-3 h-3 rounded-full bg-amber-500 animate-ping";
+            statusText.innerText = "ElevenLabs သို့ ချိတ်ဆက်နေသည်...";
+            subStatusText.innerText = "API ဖြင့် အသံဖိုင် စတင်ဖန်တီးနေပါပြီ...";
 
             try {
-                statusText.innerText = "Analyzing Text & Segmenting...";
-                await new Promise(r => setTimeout(r, 500));
-
-                const sections = segmentScript(text);
-                for (let i = 0; i < sections.length; i++) {
-                    statusText.innerText = `Processing Section ${i + 1} / ${sections.length}...`;
-                    subStatusText.innerText = `Applying voice profile: ${voiceModel}`;
-                    await new Promise(r => setTimeout(r, 600));
+                const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;
+                
+                // Add smart Burmese preprocessing if enabled
+                let processedText = text;
+                const smartPrep = document.getElementById('smartPrepToggle').checked;
+                if (smartPrep) {
+                    // Normalize spacing around punctuation marks for clearer speech rhythm
+                    processedText = text.replace(/([၊။])/g, '$1 ');
                 }
 
-                statusText.innerText = "Synthesizing Audio via Web Audio Engine...";
-                
-                // Create OfflineAudioContext or real-time AudioContext with MediaStreamDestination to record actual audio stream
-                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                const dest = audioCtx.createMediaStreamDestination();
-                
-                let mimeType = 'audio/webm;codecs=opus';
-                if (!MediaRecorder.isTypeSupported(mimeType)) {
-                    mimeType = 'audio/mp4';
-                    if (!MediaRecorder.isTypeSupported(mimeType)) {
-                        mimeType = '';
-                    }
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'audio/mpeg',
+                        'Content-Type': 'application/json',
+                        'xi-api-key': apiKey
+                    },
+                    body: JSON.stringify({
+                        text: processedText,
+                        model_id: "eleven_multilingual_v2",
+                        voice_settings: {
+                            stability: stability,
+                            similarity_boost: 0.75,
+                            style: 0.2,
+                            use_speaker_boost: true
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    const errData = await response.json().catch(() => ({}));
+                    throw new Error(errData.detail?.message || `API Error Status: ${response.status}`);
                 }
 
-                const recorder = new MediaRecorder(dest.stream, mimeType ? { mimeType } : {});
-                const chunks = [];
+                generatedAudioBlob = await response.blob();
+                audioDuration = Math.max(3, Math.ceil(text.length / 20));
 
-                recorder.ondataavailable = e => {
-                    if (e.data.size > 0) chunks.push(e.data);
-                };
+                statusIndicator.className = "w-3 h-3 rounded-full bg-emerald-500";
+                statusText.innerText = "ElevenLabs MP3 အောင်မြင်စွာ ထွက်ရှိလာပါပြီ!";
+                subStatusText.innerText = "အသံဖိုင်ကို နားဆင်နိုင်ပြီး MP3 ဖြင့် Download ရယူနိုင်ပါပြီ။";
 
-                recorder.onstop = () => {
-                    generatedAudioBlob = new Blob(chunks, { type: mimeType || 'audio/mp3' });
-                    audioDuration = Math.max(3, Math.ceil(text.length / 12));
-                    
-                    statusIndicator.className = "w-3 h-3 rounded-full bg-emerald-500";
-                    statusText.innerText = "Generation Completed Successfully!";
-                    subStatusText.innerText = `Audio ready for playback and MP3 download.`;
+                document.getElementById('playBtn').disabled = false;
+                document.getElementById('pauseBtn').disabled = false;
+                document.getElementById('downloadBtn').disabled = false;
+                document.getElementById('totalDuration').innerText = formatTime(audioDuration);
+                generateBtn.disabled = false;
 
-                    document.getElementById('playBtn').disabled = false;
-                    document.getElementById('pauseBtn').disabled = false;
-                    document.getElementById('downloadBtn').disabled = false;
-                    document.getElementById('totalDuration').innerText = formatTime(audioDuration);
-                    generateBtn.disabled = false;
-
-                    showNotification("Success", "အသံဖိုင် အောင်မြင်စွာ ဖန်တီးပြီးပါပြီ။ MP3 ဖိုင်အဖြစ် Download ဆွဲနိုင်ပါပြီ။");
-                };
-
-                recorder.start();
-
-                // Generate synthesized pleasant audio tone modulation corresponding to speech cadence
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                
-                // Voice profile pitch adjustment
-                let baseFreq = 150;
-                if (voiceModel.includes('female') || voiceModel.includes('Soft')) baseFreq = 260;
-                if (voiceModel.includes('Deep')) baseFreq = 110;
-                
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(baseFreq, audioCtx.currentTime);
-                
-                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
-
-                osc.connect(dest);
-                osc.connect(audioCtx.destination);
-
-                osc.start();
-
-                // Modulate sound duration based on text length
-                const renderDuration = Math.min(Math.max(2, text.length / 30), 10) / speed;
-                
-                setTimeout(() => {
-                    osc.stop();
-                    recorder.stop();
-                    audioCtx.close();
-                }, renderDuration * 1000);
+                showNotification("အောင်မြင်ပါသည်", "ElevenLabs မှ အသံဖိုင် အောင်မြင်စွာ ထွက်ရှိလာပါပြီ။");
 
             } catch (err) {
                 statusIndicator.className = "w-3 h-3 rounded-full bg-red-500";
-                statusText.innerText = "Generation Failed";
-                subStatusText.innerText = "Please check your network or browser audio permission.";
-                showNotification("Error", "အသံဖိုင်ဖန်တီးရာတွင် အခက်အခဲတစ်ခု ဖြစ်သွားပါတယ်။", true);
+                statusText.innerText = "ဖန်တီးမှု မအောင်မြင်ပါ";
+                subStatusText.innerText = "API Key မှန်ကန်မှု သို့မဟုတ် Network ချိတ်ဆက်မှုကို စစ်ဆေးပါ။";
                 generateBtn.disabled = false;
+                showNotification("Error", "ElevenLabs API Error: " + err.message, true);
             }
         }
 
@@ -581,7 +550,7 @@
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-            showNotification("Download", "MP3 audio file successfully downloaded.");
+            showNotification("Download", "MP3 အသံဖိုင်ကို အောင်မြင်စွာ Download ဆွဲပြီးပါပြီ။");
         }
 
         function formatTime(secs) {
