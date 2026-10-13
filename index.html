@@ -1,362 +1,323 @@
 <!DOCTYPE html>
-<html lang="my" class="h-full">
+<html lang="my" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N - Gen Voice Studio — Natural Voice. Clear Speech. Creator Ready.</title>
+    <title>N - Gen Voice Studio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter & Padauk for Burmese typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'Padauk', 'sans-serif'],
-                        burmese: ['Padauk', 'sans-serif']
-                    },
                     colors: {
-                        crimson: {
-                            50: '#fdf2f2',
-                            100: '#fde8e8',
-                            500: '#e53e3e',
-                            600: '#c53030',
-                            700: '#9b2c2c',
-                            800: '#822727',
-                            900: '#63171b'
+                        brand: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            900: '#7f1d1d',
+                            950: '#450a0a',
                         }
                     }
                 }
             }
         }
     </script>
+    <!-- Google Fonts: Pyidaungsu & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pyidaungsu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', 'Padauk', sans-serif;
+            font-family: 'Pyidaungsu', 'Inter', sans-serif;
         }
         .glass-panel {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(229, 62, 62, 0.15);
+            background: rgba(24, 24, 27, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .dark .glass-panel {
-            background: rgba(18, 18, 18, 0.85);
-            border: 1px solid rgba(229, 62, 62, 0.2);
+        .glass-input {
+            background: rgba(9, 9, 11, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .glass-input:focus {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+        }
+        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: transparent;
+            background: #09090b;
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(229, 62, 62, 0.3);
+            background: #27272a;
             border-radius: 3px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(229, 62, 62, 0.6);
+            background: #3f3f46;
         }
     </style>
 </head>
-<body class="h-full bg-gradient-to-br from-slate-50 via-crimson-50/20 to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100 flex flex-col transition-colors duration-300">
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
 
-    <header class="border-b border-crimson-100 dark:border-slate-800 glass-panel sticky top-0 z-50 px-4 lg:px-8 py-3.5 flex items-center justify-between shadow-sm">
-        <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-crimson-600 to-red-500 flex items-center justify-center text-white shadow-md shadow-crimson-500/20">
-                <i class="fa-solid fa-microphone-lines text-lg"></i>
+    <!-- Top Header -->
+    <header class="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-rose-500 flex items-center justify-center shadow-lg shadow-brand-500/20">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                        N - Gen Voice Studio
+                        <span class="text-xs px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/20 font-normal">v2.5 Pro</span>
+                    </h1>
+                    <p class="text-xs text-zinc-400">Natural Voice. Clear Speech. Creator Ready.</p>
+                </div>
             </div>
-            <div>
-                <h1 class="font-bold text-lg tracking-tight bg-gradient-to-r from-crimson-700 to-red-500 bg-clip-text text-transparent">N - Gen Voice Studio</h1>
-                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Natural Voice. Clear Speech. Creator Ready.</p>
-            </div>
-        </div>
 
-        <div class="flex items-center space-x-3">
-            <button onclick="toggleApiModal(true)" class="flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-crimson-50 dark:bg-slate-800 text-crimson-700 dark:text-crimson-400 hover:bg-crimson-100 dark:hover:bg-slate-700 transition border border-crimson-200/50 dark:border-slate-700">
-                <i class="fa-solid fa-key"></i>
-                <span class="hidden sm:inline">API Settings</span>
-            </button>
-            <button onclick="toggleDarkMode()" class="w-9 h-9 rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition">
-                <i class="fa-solid fa-moon dark:hidden"></i>
-                <i class="fa-solid fa-sun hidden dark:inline text-amber-400"></i>
-            </button>
+            <div class="flex items-center space-x-3">
+                <button onclick="openSettingsModal()" class="flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-zinc-800/80 hover:bg-zinc-700/80 text-zinc-200 text-sm font-medium border border-zinc-700 transition shadow-sm">
+                    <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span>API Settings</span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 overflow-hidden">
+    <!-- Main Workspace -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6">
         
-        <!-- LEFT COLUMN: Text Editor & Preprocessing -->
-        <section class="lg:col-span-7 flex flex-col h-full bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-            <div class="px-5 py-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-900/50">
-                <div class="flex items-center space-x-2">
-                    <i class="fa-solid fa-pen-nib text-crimson-600"></i>
-                    <h2 class="font-semibold text-sm">Script Editor & Burmese Text</h2>
-                </div>
-                <div class="flex items-center space-x-2 text-xs">
-                    <button onclick="clearText()" class="text-slate-500 hover:text-crimson-600 transition px-2 py-1 rounded">
-                        <i class="fa-solid fa-trash-can mr-1"></i> Clear
-                    </button>
-                    <button onclick="pasteText()" class="text-slate-500 hover:text-crimson-600 transition px-2 py-1 rounded">
-                        <i class="fa-solid fa-paste mr-1"></i> Paste
-                    </button>
-                    <label class="flex items-center space-x-1.5 cursor-pointer bg-crimson-50 dark:bg-crimson-950/40 text-crimson-700 dark:text-crimson-300 px-2.5 py-1 rounded-lg border border-crimson-200/50 dark:border-crimson-900/50">
-                        <input type="checkbox" id="smartPrepToggle" checked class="rounded text-crimson-600 focus:ring-crimson-500 w-3.5 h-3.5">
-                        <span class="font-medium">Smart Prep</span>
+        <!-- Left Column: Script Editor (7 cols) -->
+        <section class="lg:col-span-7 flex flex-col space-y-4">
+            <div class="glass-panel rounded-2xl p-5 flex-1 flex flex-col shadow-xl">
+                <div class="flex items-center justify-between mb-3">
+                    <label for="scriptInput" class="text-sm font-semibold text-zinc-200 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                        <span>Burmese Script Editor</span>
                     </label>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="clearText()" class="text-xs px-2.5 py-1 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition">Clear</button>
+                        <button onclick="pasteSampleScript()" class="text-xs px-2.5 py-1 rounded-lg bg-brand-500/10 hover:bg-brand-500/20 text-brand-400 border border-brand-500/20 transition">Sample</button>
+                    </div>
+                </div>
+
+                <div class="relative flex-1 flex flex-col min-h-[340px]">
+                    <textarea id="scriptInput" oninput="updateStats()" 
+                        class="glass-input w-full flex-1 p-4 rounded-xl text-zinc-100 placeholder-zinc-500 text-base focus:outline-none resize-none leading-relaxed" 
+                        placeholder="Paste your Burmese script here (e.g. မင်္ဂလာပါ၊ ဒီဗီဒီယိုလေးမှာတော့ သဘာဝကျတဲ့ မြန်မာအသံထွက် Voiceover တွေကို တည်ဆောက်နည်းအကြောင်း ဆွေးနွေးသွားမှာ ဖြစ်ပါတယ်...)"></textarea>
+                </div>
+
+                <!-- Stats Bar -->
+                <div class="flex items-center justify-between mt-4 pt-3 border-t border-zinc-800 text-xs text-zinc-400">
+                    <div class="flex items-center space-x-4">
+                        <span>Characters: <strong id="charCount" class="text-zinc-200">0</strong></span>
+                        <span>Words: <strong id="wordCount" class="text-zinc-200">0</strong></span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span>Est. Duration: <strong id="estDuration" class="text-brand-400">0s</strong></span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Textarea Container -->
-            <div class="flex-1 p-4 relative flex flex-col">
-                <textarea id="scriptInput" 
-                    placeholder="Paste your Burmese script here (ဥပမာ - မြန်မာပြည်ရဲ့ သဘာဝအလှအပတွေနဲ့ ရုပ်ရှင်ဇာတ်လမ်းဆန်းသစ်မှုများကို ဤနေရာတွင် ရေးသားပါ)..." 
-                    oninput="updateStats()"
-                    class="w-full flex-1 resize-none bg-transparent focus:outline-none font-burmese text-base leading-relaxed text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600"
-                ></textarea>
-                
-                <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between text-xs text-slate-500 dark:text-slate-400">
-                    <div class="flex space-x-4">
-                        <span>Characters: <strong id="charCount" class="text-slate-700 dark:text-slate-200">0</strong></span>
-                        <span>Words: <strong id="wordCount" class="text-slate-700 dark:text-slate-200">0</strong></span>
-                        <span>Est. Duration: <strong id="estDuration" class="text-crimson-600 dark:text-crimson-400">0s</strong></span>
+            <!-- Smart Options Toggle -->
+            <div class="glass-panel rounded-2xl p-4 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-400">
+                        ✨
                     </div>
-                    <div class="text-xs text-slate-400">
-                        <span>ElevenLabs API Ready</span>
+                    <div>
+                        <h4 class="text-sm font-medium text-zinc-200">Smart Voiceover Preparation</h4>
+                        <p class="text-xs text-zinc-400">Optimize sentence breaks and pronunciation clarity automatically.</p>
                     </div>
                 </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="smartPrepToggle" checked class="sr-only peer">
+                    <div class="w-11 h-6 bg-zinc-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-zinc-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-600"></div>
+                </label>
             </div>
         </section>
 
-        <!-- RIGHT COLUMN: Voice Controls & Profiles -->
-        <section class="lg:col-span-5 flex flex-col h-full bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-            <div class="px-5 py-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-900/50">
-                <div class="flex items-center space-x-2">
-                    <i class="fa-solid fa-sliders text-crimson-600"></i>
-                    <h2 class="font-semibold text-sm">Voice Studio Controls</h2>
+        <!-- Right Column: Voice Controls & Player (5 cols) -->
+        <section class="lg:col-span-5 flex flex-col space-y-4">
+            <div class="glass-panel rounded-2xl p-5 flex flex-col space-y-4 shadow-xl">
+                <h3 class="text-sm font-semibold text-zinc-200 flex items-center gap-2 pb-2 border-b border-zinc-800">
+                    <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                    </svg>
+                    <span>Voice Studio Settings</span>
+                </h3>
+
+                <!-- Voice Model Selector -->
+                <div class="space-y-1.5">
+                    <label class="text-xs font-medium text-zinc-400">Voice Profile (15 Models)</label>
+                    <select id="voiceModelSelect" class="glass-input w-full p-2.5 rounded-xl text-sm text-zinc-200 focus:outline-none">
+                        <option value="EXAVITQu4vr4xnSDxMaL">VOICE 01 — Natural Male (Warm & Balanced)</option>
+                        <option value="21m00Tcm4TlvDq8ikWAM">VOICE 02 — Natural Female (Clear & Friendly)</option>
+                        <option value="AZnzlk1XvdvUeBnXmlld">VOICE 03 — Deep Male (Documentary & Confident)</option>
+                        <option value="EXAVITQu4vr4xnSDxMaL">VOICE 04 — Soft Female (Warm & Gentle Storytelling)</option>
+                        <option value="VR6AewLTigWG4xSOukaG">VOICE 05 — Energetic Male (TikTok / Viral Creator)</option>
+                        <option value="ThT5KcBeYPX3keUQqHPh">VOICE 06 — Energetic Female (Bright & Enthusiastic)</option>
+                        <option value="AZnzlk1XvdvUeBnXmlld">VOICE 07 — Documentary Male (Controlled & Serious)</option>
+                        <option value="ErXwobaYiN019PkySvjV">VOICE 08 — Storyteller Male (Expressive & Paused)</option>
+                        <option value="MF3mGyEYCl7XYWbV9V6O">VOICE 09 — Storyteller Female (Warm Dramatic Delivery)</option>
+                        <option value="TxGEqnHWrfWFTfGW9XjX">VOICE 10 — Calm Narrator (Slow & Relaxing)</option>
+                        <option value="VR6AewLTigWG4xSOukaG">VOICE 11 — Professional Presenter (Business & Ed)</option>
+                        <option value="ErXwobaYiN019PkySvjV">VOICE 12 — Movie Recap (Dramatic Scene Transitions)</option>
+                        <option value="AZnzlk1XvdvUeBnXmlld">VOICE 13 — Mystery (Suspenseful & Controlled)</option>
+                        <option value="21m00Tcm4TlvDq8ikWAM">VOICE 14 — Friendly Creator (Conversational Rhythm)</option>
+                        <option value="EXAVITQu4vr4xnSDxMaL" selected>VOICE 15 — Premium Narrator (Cinematic High Clarity)</option>
+                    </select>
                 </div>
-                <button onclick="resetControls()" class="text-xs text-slate-500 hover:text-crimson-600 transition">
-                    <i class="fa-solid fa-rotate-right mr-1"></i> Reset
+
+                <!-- Speed Control -->
+                <div class="space-y-1.5">
+                    <label class="text-xs font-medium text-zinc-400">Speed: <span id="speedVal" class="text-brand-400 font-semibold">1.0x</span></label>
+                    <div class="grid grid-cols-7 gap-1">
+                        <button onclick="setSpeed(0.75)" class="speed-btn py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 hover:border-brand-500 transition">0.75x</button>
+                        <button onclick="setSpeed(0.85)" class="speed-btn py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 hover:border-brand-500 transition">0.85x</button>
+                        <button onclick="setSpeed(0.95)" class="speed-btn py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 hover:border-brand-500 transition">0.95x</button>
+                        <button onclick="setSpeed(1.0)" class="speed-btn py-1.5 rounded-lg bg-brand-600 border border-brand-500 text-xs text-white font-semibold transition active-speed">1.0x</button>
+                        <button onclick="setSpeed(1.1)" class="speed-btn py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 hover:border-brand-500 transition">1.1x</button>
+                        <button onclick="setSpeed(1.2)" class="speed-btn py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 hover:border-brand-500 transition">1.2x</button>
+                        <button onclick="setSpeed(1.3)" class="speed-btn py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 hover:border-brand-500 transition">1.3x</button>
+                    </div>
+                </div>
+
+                <!-- Expression & Clarity Controls -->
+                <div class="grid grid-cols-2 gap-3 pt-2">
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-medium text-zinc-400">Expression</label>
+                        <select id="expressionSelect" class="glass-input w-full p-2 rounded-xl text-xs text-zinc-200">
+                            <option value="low">Low</option>
+                            <option value="natural" selected>Natural</option>
+                            <option value="expressive">Expressive</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-medium text-zinc-400">Clarity</label>
+                        <select id="claritySelect" class="glass-input w-full p-2 rounded-xl text-xs text-zinc-200">
+                            <option value="standard">Standard</option>
+                            <option value="enhanced" selected>Enhanced (Clear)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Generate Action Button -->
+                <button onclick="generateVoice()" id="generateBtn" 
+                    class="w-full mt-2 py-3 px-4 rounded-xl bg-gradient-to-r from-brand-600 to-rose-600 hover:from-brand-500 hover:to-rose-500 text-white font-semibold text-sm shadow-lg shadow-brand-600/30 transition flex items-center justify-center space-x-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Generate Natural Speech</span>
                 </button>
+
+                <!-- Status / Progress Feedback -->
+                <div id="statusBox" class="hidden p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 flex items-center space-x-3">
+                    <div class="w-4 h-4 border-2 border-brand-500 border-t-transparent rounded-full animate-spin"></div>
+                    <span id="statusText">Analyzing text segments...</span>
+                </div>
             </div>
 
-            <div class="flex-1 overflow-y-auto p-5 space-y-5">
-                
-                <!-- Voice Model Selection (15 Profiles with ElevenLabs Voice IDs) -->
-                <div>
-                    <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-2">
-                        Voice Model Profile (15 Available)
-                    </label>
-                    <select id="voiceModelSelect" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:ring-2 focus:ring-crimson-500 focus:outline-none">
-                        <option value="21m00Tcm4TlvDq8ikWAM">VOICE 01 — Rachel (Natural Female, Calm & Clear)</option>
-                        <option value="AZnzlk1XvdvUeBnXmlld">VOICE 02 — Domi (Expressive Female)</option>
-                        <option value="EXAVITQu4vr4xnSDxMaL">VOICE 03 — Bella (Soft Narrative)</option>
-                        <option value="ErXwobaYiN019PkySvjV">VOICE 04 — Antoni (Warm Balanced Male)</option>
-                        <option value="VR6AewLTigWG4xSOukaG">VOICE 05 — Eli (Energetic Creator)</option>
-                        <option value="MF3mGyEYCl7XYWbV9V6O">VOICE 06 — Elli (Friendly Storyteller)</option>
-                        <option value="TxGEqnHWrfWFTfGW9XjX">VOICE 07 — Josh (Deep Documentary Male)</option>
-                        <option value="VR6AewLTigWG4xSOukaG">VOICE 08 — Arnold (Cinematic Recap Male)</option>
-                        <option value="AZnzlk1XvdvUeBnXmlld">VOICE 09 — Sam (Confident Presenter)</option>
-                        <option value="pNInz6obpgDQGcFmaJgB">VOICE 10 — Adam (Deep Voice Narrator)</option>
-                        <option value="yoZ06aMxZJJ28mfd3POQ">VOICE 11 — Sam (Professional Male)</option>
-                        <option value="ODq5zmih8GrVes37Dizd">VOICE 12 — Patrick (Warm Audiobooks)</option>
-                        <option value="ThT5KcBeYPX3keUQqHPh">VOICE 13 — Dorothy (Classic Storyteller)</option>
-                        <option value="ZQe5CZNOzWyzPSCn5a3c">VOICE 14 — James (News Narrator)</option>
-                        <option value="CYw3kZ02Hs0563khs1Fj">VOICE 15 — Dave (Casual Conversational)</option>
-                    </select>
+            <!-- Audio Player Card -->
+            <div id="playerCard" class="glass-panel rounded-2xl p-5 flex flex-col space-y-3 opacity-60 pointer-events-none transition">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-semibold text-zinc-400 uppercase tracking-wider">Audio Output</span>
+                    <span id="selectedVoiceBadge" class="text-xs px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">Ready</span>
                 </div>
 
-                <!-- Control Grid -->
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1.5">Speed</label>
-                        <select id="speedSelect" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-crimson-500 focus:outline-none">
-                            <option value="0.75">0.75x (Slow)</option>
-                            <option value="0.85">0.85x</option>
-                            <option value="0.95">0.95x</option>
-                            <option value="1.0" selected>1.0x (Default)</option>
-                            <option value="1.1">1.1x</option>
-                            <option value="1.2">1.2x</option>
-                            <option value="1.3">1.3x (Fast)</option>
-                        </select>
-                    </div>
+                <audio id="audioElement" controls class="w-full h-10 accent-brand-500"></audio>
 
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1.5">Pitch</label>
-                        <select id="pitchSelect" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-crimson-500 focus:outline-none">
-                            <option value="low">Low (-2 st)</option>
-                            <option value="normal" selected>Normal (Default)</option>
-                            <option value="high">High (+2 st)</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1.5">Expression</label>
-                        <select id="expressionSelect" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-crimson-500 focus:outline-none">
-                            <option value="0.3">Low Stability</option>
-                            <option value="0.75" selected>Natural (75%)</option>
-                            <option value="0.95">High Expressive</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1.5">Pause Control</label>
-                        <select id="pauseSelect" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-crimson-500 focus:outline-none">
-                            <option value="short">Short Breaks</option>
-                            <option value="natural" selected>Natural Cadence</option>
-                            <option value="long">Cinematic Long Pauses</option>
-                        </select>
-                    </div>
+                <div class="flex items-center space-x-2 pt-1">
+                    <a id="downloadBtn" download="n-gen-voiceover.mp3" class="flex-1 py-2 px-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium text-center border border-zinc-700 transition flex items-center justify-center space-x-2 pointer-events-none opacity-50">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        <span>Download MP3 Audio</span>
+                    </a>
                 </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1.5">Pronunciation Clarity</label>
-                    <select id="claritySelect" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-crimson-500 focus:outline-none">
-                        <option value="standard">Standard Clarity</option>
-                        <option value="enhanced" selected>Enhanced Burmese Articulation (Recommended)</option>
-                    </select>
-                </div>
-
-                <button onclick="startElevenLabsGeneration()" id="generateBtn" class="w-full mt-2 py-3.5 px-4 bg-gradient-to-r from-crimson-600 to-red-500 hover:from-crimson-700 hover:to-red-600 text-white font-semibold rounded-xl shadow-lg shadow-crimson-600/30 flex items-center justify-center space-x-2 transition transform active:scale-[0.98]">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <span>Generate ElevenLabs MP3 Audio</span>
-                </button>
-
             </div>
         </section>
-
     </main>
 
-    <footer class="border-t border-slate-200 dark:border-slate-800 glass-panel px-4 lg:px-8 py-4">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            
-            <div class="flex items-center space-x-3 w-full md:w-auto">
-                <div id="statusIndicator" class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
-                <div>
-                    <p id="statusText" class="text-sm font-medium text-slate-700 dark:text-slate-200">Ready to generate voice-over</p>
-                    <p id="subStatusText" class="text-xs text-slate-400">Enter API key in settings & click generate</p>
-                </div>
+    <!-- API Key Settings Modal -->
+    <div id="settingsModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="glass-panel w-full max-w-md rounded-2xl p-6 border border-zinc-700 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between pb-2 border-b border-zinc-800">
+                <h3 class="text-base font-bold text-white">ElevenLabs API Configuration</h3>
+                <button onclick="closeSettingsModal()" class="text-zinc-400 hover:text-white text-sm">✕</button>
             </div>
-
-            <div class="flex items-center space-x-4 w-full md:w-auto justify-end">
-                <button onclick="playAudio()" id="playBtn" disabled class="w-11 h-11 rounded-xl bg-crimson-600 text-white flex items-center justify-center hover:bg-crimson-700 disabled:opacity-40 disabled:cursor-not-allowed shadow-md transition">
-                    <i class="fa-solid fa-play"></i>
-                </button>
-                <button onclick="pauseAudio()" id="pauseBtn" disabled class="w-11 h-11 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-slate-300 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition">
-                    <i class="fa-solid fa-pause"></i>
-                </button>
-                <div class="flex items-center space-x-2 text-xs font-mono text-slate-500">
-                    <span id="currentTime">0:00</span> / <span id="totalDuration">0:00</span>
-                </div>
-                <button onclick="downloadMp3()" id="downloadBtn" disabled class="px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed text-xs font-semibold flex items-center space-x-1.5 transition">
-                    <i class="fa-solid fa-download"></i>
-                    <span>Download MP3</span>
-                </button>
-            </div>
-
-        </div>
-    </footer>
-
-    <!-- API Settings Modal -->
-    <div id="apiModal" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-4">
-            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-                <h3 class="font-bold text-base flex items-center space-x-2">
-                    <i class="fa-solid fa-key text-crimson-600"></i>
-                    <span>ElevenLabs API Configuration</span>
-                </h3>
-                <button onclick="toggleApiModal(false)" class="text-slate-400 hover:text-slate-600">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-            
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                Enter your <strong class="text-slate-700 dark:text-slate-200">ElevenLabs API Key</strong> to generate high-quality voice audio for Burmese scripts directly from ElevenLabs servers. Keys are stored securely in your browser's localStorage.
+            <p class="text-xs text-zinc-400 leading-relaxed">
+                Enter your ElevenLabs API Key below to enable full neural text-to-speech generation. Your key is stored securely in your browser's local storage.
             </p>
-
-            <div class="space-y-3">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">ElevenLabs API Key</label>
-                    <input type="password" id="apiKeyInput" placeholder="sk_..." class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-crimson-500 focus:outline-none">
-                </div>
+            <div class="space-y-1.5">
+                <label class="text-xs font-medium text-zinc-300">API Key</label>
+                <input type="password" id="apiKeyInput" placeholder="sk_..." class="glass-input w-full p-3 rounded-xl text-sm text-zinc-100 focus:outline-none">
             </div>
-
-            <div class="flex justify-end space-x-3 pt-3 border-t border-slate-100 dark:border-slate-800">
-                <button onclick="toggleApiModal(false)" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition">Cancel</button>
-                <button onclick="saveApiSettings()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-crimson-600 text-white hover:bg-crimson-700 transition shadow-md">Save Settings</button>
+            <div class="flex justify-end space-x-2 pt-2">
+                <button onclick="closeSettingsModal()" class="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-medium transition">Cancel</button>
+                <button onclick="saveApiKey()" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold transition">Save API Key</button>
             </div>
         </div>
     </div>
 
-    <!-- Notification Modal -->
-    <div id="notificationModal" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-800 text-center space-y-4">
-            <div id="modalIcon" class="w-12 h-12 rounded-full bg-crimson-100 dark:bg-crimson-950/60 text-crimson-600 flex items-center justify-center mx-auto text-xl">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-            </div>
-            <div>
-                <h4 id="modalTitle" class="font-bold text-base text-slate-800 dark:text-slate-100">Notice</h4>
-                <p id="modalMessage" class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed"></p>
-            </div>
-            <button onclick="closeNotification()" class="w-full py-2.5 rounded-xl bg-crimson-600 text-white font-semibold text-xs hover:bg-crimson-700 transition shadow-md">OK</button>
-        </div>
-    </div>
-
+    <!-- JavaScript Application Logic -->
     <script>
-        let generatedAudioBlob = null;
-        let audioElement = null;
-        let isPlaying = false;
-        let audioDuration = 0;
-        let playbackTimer = null;
+        let currentSpeed = 1.0;
 
-        window.onload = function() {
-            loadSavedSettings();
-            updateStats();
-        };
-
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
-        }
-
-        function toggleApiModal(show) {
-            const modal = document.getElementById('apiModal');
-            if (show) modal.classList.remove('hidden');
-            else modal.classList.add('hidden');
-        }
-
-        function showNotification(title, message, isError = false) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalMessage').innerText = message;
-            const iconDiv = document.getElementById('modalIcon');
-            if (isError) {
-                iconDiv.className = "w-12 h-12 rounded-full bg-red-100 dark:bg-red-950/60 text-red-600 flex items-center justify-center mx-auto text-xl";
-                iconDiv.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>';
-            } else {
-                iconDiv.className = "w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 flex items-center justify-center mx-auto text-xl";
-                iconDiv.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+        // On Load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedKey = localStorage.getItem('ngen_eleven_api_key');
+            if (savedKey) {
+                document.getElementById('apiKeyInput').value = savedKey;
             }
-            document.getElementById('notificationModal').classList.remove('hidden');
+            updateStats();
+        });
+
+        function openSettingsModal() {
+            document.getElementById('settingsModal').classList.remove('hidden');
         }
 
-        function closeNotification() {
-            document.getElementById('notificationModal').classList.add('hidden');
+        function closeSettingsModal() {
+            document.getElementById('settingsModal').classList.add('hidden');
         }
 
-        function saveApiSettings() {
-            const apiKey = document.getElementById('apiKeyInput').value.trim();
-            localStorage.setItem('elevenlabs_api_key', apiKey);
-            toggleApiModal(false);
-            showNotification("အောင်မြင်ပါသည်", "API Key ကို သိမ်းဆည်းပြီးပါပြီ။");
+        function saveApiKey() {
+            const key = document.getElementById('apiKeyInput').value.trim();
+            if (key) {
+                localStorage.setItem('ngen_eleven_api_key', key);
+                closeSettingsModal();
+                alert('API Key saved successfully!');
+            } else {
+                alert('ကျေးဇူးပြု၍ မှန်ကန်သော API Key ထည့်သွင်းပါ။');
+            }
         }
 
-        function loadSavedSettings() {
-            const apiKey = localStorage.getItem('elevenlabs_api_key');
-            if (apiKey) document.getElementById('apiKeyInput').value = apiKey;
+        function setSpeed(spd) {
+            currentSpeed = spd;
+            document.querySelectorAll('.speed-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'border-brand-500', 'text-white', 'font-semibold');
+                btn.classList.add('bg-zinc-900', 'border-zinc-800', 'text-zinc-300');
+                if (btn.textContent.includes(spd + 'x')) {
+                    btn.classList.remove('bg-zinc-900', 'border-zinc-800', 'text-zinc-300');
+                    btn.classList.add('bg-brand-600', 'border-brand-500', 'text-white', 'font-semibold');
+                }
+            });
+            document.getElementById('speedVal').textContent = spd + 'x';
         }
 
         function clearText() {
@@ -364,199 +325,146 @@
             updateStats();
         }
 
-        function pasteText() {
-            navigator.clipboard.readText().then(text => {
-                document.getElementById('scriptInput').value = text;
-                updateStats();
-            }).catch(() => {
-                showNotification("Paste Error", "စာသားကို ကူးယူရာတွင် အခက်အခဲရှိပါသည်။", true);
-            });
+        function pasteSampleScript() {
+            document.getElementById('scriptInput').value = "မင်္ဂလာပါ၊ N - ကျင် ဗွိုက်စ့် စတူဒီယိုမှ ကြိုဆိုပါတယ်။ ဒီစနစ်ကနေတဆင့် သဘာဝကျပြီး ရှင်းလင်းပြတ်သားတဲ့ မြန်မာအသံထွက် Voiceover တွေကို လွယ်ကူစွာ ဖန်တီးနိုင်ပါတယ်။ စာသားရှည်တွေကို အပိုင်းလိုက် စနစ်တကျ ခွဲထုတ်ပေးပြီး အကောင်းဆုံး အသံအရည်အသွေးကို ထုတ်လုပ်ပေးပါတယ်။";
+            updateStats();
         }
 
         function updateStats() {
             const text = document.getElementById('scriptInput').value;
-            const charCount = text.length;
+            const chars = text.length;
             const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-            const seconds = Math.ceil((words / 150) * 60);
-            const mins = Math.floor(seconds / 60);
-            const remSecs = seconds % 60;
-            const durationFormatted = mins > 0 ? `${mins}m ${remSecs}s` : `${seconds}s`;
+            const estSeconds = Math.round(chars / 14); // Approximate reading speed in Burmese
+            const mins = Math.floor(estSeconds / 60);
+            const secs = estSeconds % 60;
+            const durationFormatted = mins > 0 ? `${mins}m ${secs}s` : `${secs}s`;
 
-            document.getElementById('charCount').innerText = charCount.toLocaleString();
-            document.getElementById('wordCount').innerText = words.toLocaleString();
-            document.getElementById('estDuration').innerText = durationFormatted;
+            document.getElementById('charCount').textContent = chars.toLocaleString();
+            document.getElementById('wordCount').textContent = words.toLocaleString();
+            document.getElementById('estDuration').textContent = durationFormatted;
         }
 
-        function resetControls() {
-            document.getElementById('voiceModelSelect').selectedIndex = 0;
-            document.getElementById('speedSelect').value = '1.0';
-            document.getElementById('pitchSelect').value = 'normal';
-            document.getElementById('expressionSelect').value = '0.75';
-            document.getElementById('pauseSelect').value = 'natural';
-            document.getElementById('claritySelect').value = 'enhanced';
-            showNotification("Reset", "ထိန်းချုပ်မှုများကို မူလအခြေအနေသို့ ပြန်လည်ပြောင်းလဲပြီးပါပြီ။");
+        function showStatus(text) {
+            const box = document.getElementById('statusBox');
+            const txt = document.getElementById('statusText');
+            box.classList.remove('hidden');
+            txt.textContent = text;
         }
 
-        function segmentScript(text) {
-            if (!text.trim()) return [];
-            const rawSections = text.split(/[\n\r]+|[။?!]/).filter(s => s.trim().length > 0);
-            const sections = [];
+        function hideStatus() {
+            document.getElementById('statusBox').classList.add('hidden');
+        }
+
+        // Smart text chunker to handle long scripts without breaking sentences
+        function splitTextIntoChunks(text, maxLength = 350) {
+            const sentences = text.match(/[^.!?。！？\n]+[.!?。！？\n]+/g) || [text];
+            let chunks = [];
             let currentChunk = "";
-            for (let part of rawSections) {
-                if ((currentChunk + part).length < 400) {
-                    currentChunk += part + " ";
+
+            for (let sentence of sentences) {
+                if ((currentChunk + sentence).length <= maxLength) {
+                    currentChunk += sentence;
                 } else {
-                    if (currentChunk) sections.push(currentChunk.trim());
-                    currentChunk = part + " ";
+                    if (currentChunk) chunks.push(currentChunk.trim());
+                    currentChunk = sentence;
                 }
             }
-            if (currentChunk) sections.push(currentChunk.trim());
-            return sections.length > 0 ? sections : [text];
+            if (currentChunk) chunks.push(currentChunk.trim());
+            return chunks.length > 0 ? chunks : [text];
         }
 
-        // Real ElevenLabs API Integration
-        async function startElevenLabsGeneration() {
-            const text = document.getElementById('scriptInput').value.trim();
-            if (!text) {
-                showNotification("သတိပေးချက်", "ကျေးဇူးပြု၍ Burmese စာသားအနည်းဆုံး တစ်ပိုဒ်ထည့်ပါ။", true);
+        async function generateVoice() {
+            const apiKey = localStorage.getItem('ngen_eleven_api_key') || document.getElementById('apiKeyInput').value.trim();
+            if (!apiKey) {
+                alert('ကျေးဇူးပြု၍ Settings ထဲတွင် ElevenLabs API Key ထည့်သွင်းပေးပါ။');
+                openSettingsModal();
                 return;
             }
 
-            const apiKey = localStorage.getItem('elevenlabs_api_key') || document.getElementById('apiKeyInput').value.trim();
-            if (!apiKey) {
-                showNotification("API Key လိုအပ်ပါသည်", "API Settings ထဲတွင် ElevenLabs API Key ထည့်သွင်းပေးပါ။", true);
-                toggleApiModal(true);
+            const script = document.getElementById('scriptInput').value.trim();
+            if (!script) {
+                alert('စာသားမထည့်ရသေးပါဘူး။ Script ကို Paste လုပ်ပေးပါ။');
                 return;
             }
 
             const voiceId = document.getElementById('voiceModelSelect').value;
-            const stability = parseFloat(document.getElementById('expressionSelect').value);
-            const speed = parseFloat(document.getElementById('speedSelect').value);
-            
-            const statusIndicator = document.getElementById('statusIndicator');
-            const statusText = document.getElementById('statusText');
-            const subStatusText = document.getElementById('subStatusText');
-            const generateBtn = document.getElementById('generateBtn');
+            const expression = document.getElementById('expressionSelect').value;
+            const clarity = document.getElementById('claritySelect').value;
 
+            // Map expression & clarity to ElevenLabs stability / similarity settings
+            let stability = 0.75;
+            let similarity = 0.85;
+            if (expression === 'expressive') stability = 0.45;
+            if (expression === 'low') stability = 0.90;
+            if (clarity === 'enhanced') similarity = 0.92;
+
+            const generateBtn = document.getElementById('generateBtn');
             generateBtn.disabled = true;
-            statusIndicator.className = "w-3 h-3 rounded-full bg-amber-500 animate-ping";
-            statusText.innerText = "ElevenLabs သို့ ချိတ်ဆက်နေသည်...";
-            subStatusText.innerText = "API ဖြင့် အသံဖိုင် စတင်ဖန်တီးနေပါပြီ...";
+            generateBtn.classList.add('opacity-50', 'cursor-not-allowed');
 
             try {
-                const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;
-                
-                // Add smart Burmese preprocessing if enabled
-                let processedText = text;
-                const smartPrep = document.getElementById('smartPrepToggle').checked;
-                if (smartPrep) {
-                    // Normalize spacing around punctuation marks for clearer speech rhythm
-                    processedText = text.replace(/([၊။])/g, '$1 ');
+                showStatus("Analyzing and splitting text segments...");
+                const chunks = splitTextIntoChunks(script, 300);
+                let audioBuffers = [];
+
+                for (let i = 0; i < chunks.length; i++) {
+                    showStatus(`Processing Section ${i + 1} of ${chunks.length}...`);
+                    
+                    const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=mp3_44100_128`, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'audio/mpeg',
+                            'Content-Type': 'application/json',
+                            'xi-api-key': apiKey
+                        },
+                        body: JSON.stringify({
+                            text: chunks[i],
+                            model_id: "eleven_multilingual_v2",
+                            voice_settings: {
+                                stability: stability,
+                                similarity_boost: similarity,
+                                speed: currentSpeed
+                            }
+                        })
+                    });
+
+                    if (!response.ok) {
+                        const errData = await response.json().catch(() => ({}));
+                        throw new Error(errData.detail?.message || `API Error: ${response.status}`);
+                    }
+
+                    const arrayBuffer = await response.arrayBuffer();
+                    audioBuffers.push(arrayBuffer);
                 }
 
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'audio/mpeg',
-                        'Content-Type': 'application/json',
-                        'xi-api-key': apiKey
-                    },
-                    body: JSON.stringify({
-                        text: processedText,
-                        model_id: "eleven_multilingual_v2",
-                        voice_settings: {
-                            stability: stability,
-                            similarity_boost: 0.75,
-                            style: 0.2,
-                            use_speaker_boost: true
-                        }
-                    })
-                });
+                showStatus("Combining audio segments...");
+                const combinedBlob = new Blob(audioBuffers, { type: 'audio/mp3' });
+                const audioUrl = URL.createObjectURL(combinedBlob);
 
-                if (!response.ok) {
-                    const errData = await response.json().catch(() => ({}));
-                    throw new Error(errData.detail?.message || `API Error Status: ${response.status}`);
-                }
+                const audioElement = document.getElementById('audioElement');
+                audioElement.src = audioUrl;
 
-                generatedAudioBlob = await response.blob();
-                audioDuration = Math.max(3, Math.ceil(text.length / 20));
+                const downloadBtn = document.getElementById('downloadBtn');
+                downloadBtn.href = audioUrl;
+                downloadBtn.classList.remove('pointer-events-none', 'opacity-50');
 
-                statusIndicator.className = "w-3 h-3 rounded-full bg-emerald-500";
-                statusText.innerText = "ElevenLabs MP3 အောင်မြင်စွာ ထွက်ရှိလာပါပြီ!";
-                subStatusText.innerText = "အသံဖိုင်ကို နားဆင်နိုင်ပြီး MP3 ဖြင့် Download ရယူနိုင်ပါပြီ။";
+                const playerCard = document.getElementById('playerCard');
+                playerCard.classList.remove('opacity-60', 'pointer-events-none');
 
-                document.getElementById('playBtn').disabled = false;
-                document.getElementById('pauseBtn').disabled = false;
-                document.getElementById('downloadBtn').disabled = false;
-                document.getElementById('totalDuration').innerText = formatTime(audioDuration);
+                const selectedVoiceText = document.getElementById('voiceModelSelect').selectedOptions[0].text.split('—')[0].trim();
+                document.getElementById('selectedVoiceBadge').textContent = selectedVoiceText;
+
+                hideStatus();
+                alert('အသံဖိုင် အောင်မြင်စွာ ဖန်တီးပြီးပါပြီ။ Play ၍ နားဆင်နိုင်ပါပြီ။');
+
+            } catch (error) {
+                console.error(error);
+                hideStatus();
+                alert('အသံဖိုင် ဖန်တီးရာတွင် အခက်အခဲရှိပါသည်။ API Key သို့မဟုတ် Network ကို စစ်ဆေးပေးပါ။\n\nError: ' + error.message);
+            } finally {
                 generateBtn.disabled = false;
-
-                showNotification("အောင်မြင်ပါသည်", "ElevenLabs မှ အသံဖိုင် အောင်မြင်စွာ ထွက်ရှိလာပါပြီ။");
-
-            } catch (err) {
-                statusIndicator.className = "w-3 h-3 rounded-full bg-red-500";
-                statusText.innerText = "ဖန်တီးမှု မအောင်မြင်ပါ";
-                subStatusText.innerText = "API Key မှန်ကန်မှု သို့မဟုတ် Network ချိတ်ဆက်မှုကို စစ်ဆေးပါ။";
-                generateBtn.disabled = false;
-                showNotification("Error", "ElevenLabs API Error: " + err.message, true);
+                generateBtn.classList.remove('opacity-50', 'cursor-not-allowed');
             }
-        }
-
-        function playAudio() {
-            if (!generatedAudioBlob) return;
-            isPlaying = true;
-            document.getElementById('playBtn').classList.add('ring-2', 'ring-crimson-400');
-            
-            if (audioElement) {
-                audioElement.pause();
-            }
-
-            const audioUrl = URL.createObjectURL(generatedAudioBlob);
-            audioElement = new Audio(audioUrl);
-            audioElement.playbackRate = parseFloat(document.getElementById('speedSelect').value);
-            audioElement.play();
-
-            audioElement.onended = () => {
-                pauseAudio();
-            };
-
-            let currentSec = 0;
-            clearInterval(playbackTimer);
-            playbackTimer = setInterval(() => {
-                currentSec++;
-                if (currentSec > audioDuration) {
-                    pauseAudio();
-                    currentSec = audioDuration;
-                }
-                document.getElementById('currentTime').innerText = formatTime(currentSec);
-            }, 1000);
-        }
-
-        function pauseAudio() {
-            isPlaying = false;
-            document.getElementById('playBtn').classList.remove('ring-2', 'ring-crimson-400');
-            if (audioElement) {
-                audioElement.pause();
-            }
-            clearInterval(playbackTimer);
-        }
-
-        function downloadMp3() {
-            if (!generatedAudioBlob) return;
-            const url = URL.createObjectURL(generatedAudioBlob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `N-Gen-Voice-Studio-${Date.now()}.mp3`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            showNotification("Download", "MP3 အသံဖိုင်ကို အောင်မြင်စွာ Download ဆွဲပြီးပါပြီ။");
-        }
-
-        function formatTime(secs) {
-            const m = Math.floor(secs / 60);
-            const s = secs % 60;
-            return `${m}:${s < 10 ? '0' : ''}${s}`;
         }
     </script>
 </body>
